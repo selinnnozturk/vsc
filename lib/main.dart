@@ -1,7 +1,7 @@
 import 'package:deneme/screens/detailList.dart';
 import 'package:flutter/material.dart';
-
 import 'screens/detail.dart';
+import 'jsonExamp.dart';
 
 void main() => runApp(MyApp());
 
@@ -83,6 +83,20 @@ class MyCustomFormState extends State<MyCustomForm> {
                     context,
                     MaterialPageRoute(
                         builder: (BuildContext context) => DetailsList()));
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.list_alt_sharp,
+                color: Colors.white,
+              ),
+              title: Text("Json",
+                  style: TextStyle(color: Colors.white, fontSize: 25)),
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => JsonExamp()));
               },
             ),
           ],

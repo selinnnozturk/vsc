@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
-class MobilSettingApi {
-  static Future getMobilSettingApi() async {
+class MobilSettingsApi {
+  static Future getMobilSettingsApi() async {
     var dio = Dio();
     try {
       final response = await dio.get(
@@ -10,6 +10,7 @@ class MobilSettingApi {
         if (response.data != "[]") {
           dio.close();
         }
+
         return response;
       }
     } catch (e) {

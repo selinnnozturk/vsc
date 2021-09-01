@@ -35,6 +35,8 @@ class DbMobilSettings {
   //       where: "$colId =?", whereArgs: [conf.id]);
   //   return result;
   // }
+  
+
 
   Future<int> mobilSettingsDelete(MobilSetting conf) async {
     Database? db = await this.dbHelper.db;
@@ -48,6 +50,7 @@ class DbMobilSettings {
     return result;
   }
 
+  
   Future<int> isMobilSettings() async {
     Database? db = await this.dbHelper.db;
     var result = await db!.rawQuery("Select * from $tblMobilSettings");

@@ -1,71 +1,20 @@
-class MobilSetting {
-  int? id;
-  String? adSoyad;
-  String? telefon;
-  String? yas;
-  String? eMail;
-  String? sehir;
+class MobilSettings {
+  late int _id;
+  late String _id2;
+  late String _abbrevation;
+  late String _active;
+  late String _configClass;
+  late String _databaseId;
+  late String _dbName;
+  late String _deleted;
+  late String _description;
+  late String _oskey;
+  late String _priority;
+  late String _proxy;
+  late String _proxyr;
+  late String _schoolName;
 
-  MobilSetting({
-    this.id,
-    required this.adSoyad,
-    required this.telefon,
-    required this.yas,
-    required this.eMail,
-    required this.sehir,
-  });
-
-  MobilSetting.fromObject(Map<String, dynamic> object) {
-    this.id = object["Id"];
-    this.adSoyad = object["AdSoyad"];
-    this.telefon = object["Telefon"];
-    this.yas = object["Yas"];
-    this.eMail = object["EMail"];
-    this.sehir = object["Sehir"];
-  }
-
-  Map<String, dynamic> toObject() {
-    Map<String, dynamic> data = new Map<String, dynamic>();
-    data["Id"] = this.id;
-    data["AdSoyad"] = this.adSoyad;
-    data["Telefon"] = this.telefon;
-    data["Yas"] = this.yas;
-    data["EMail"] = this.eMail;
-    data["Sehir"] = this.sehir;
-    return data;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*class MobilSetting1 {
-  int _id;
-  String _id2;
-  String _abbrevation;
-  String _active;
-  String _configClass;
-  String _databaseId;
-  String _dbName;
-  String _deleted;
-  String _description;
-  String _oskey;
-  String _priority;
-  String _proxy;
-  String _proxyr;
-  String _schoolName;
-
-  MobilSetting1(
+  MobilSettings(
       this._id2,
       this._abbrevation,
       this._active,
@@ -130,9 +79,25 @@ class MobilSetting {
     return map;
   }
 
-  
+  //DB  deki ile aynı isimde olması gerek büyük-küçük harfe dikkat et
+  MobilSettings.fromObject(dynamic o) {
+    this._id = o["Id"];
+    this._id2 = o["Id2"];
+    this._abbrevation = o["Abbrevation"];
+    this._active = o["Active"];
+    this._configClass = o["ConfigClass"];
+    this._databaseId = o["DatabaseId"];
+    this._dbName = o["DbName"];
+    this._deleted = o["Deleted"];
+    this._description = o["Description"];
+    this._oskey = o["Oskey"];
+    this._priority = o["Priority"];
+    this._proxy = o["Proxy"];
+    this._proxyr = o["Proxyr"];
+    this._schoolName = o["SchoolName"];
+  }
 
-  MobilSetting1.fromJson(Map o) {
+  MobilSettings.fromJson(Map o) {
     this._id2 = o["id"];
     this._abbrevation = o["abbrevation"];
     this._active = o["active"];
@@ -166,4 +131,3 @@ class MobilSetting {
     };
   }
 }
-*/

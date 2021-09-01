@@ -11,6 +11,7 @@ abstract class IDbMobilSettings {
   Future<void> close();
 }
 
+
 class DbMobilSettings extends IDbMobilSettings {
   static Database? _database;
   String _databaseName = "kisi";
@@ -33,6 +34,7 @@ class DbMobilSettings extends IDbMobilSettings {
     return _database;
   }
 
+  
   Future<Database?> initialDatabase() async {
     String dbPath = join(await getDatabasesPath(), _databaseName);
     var mobilSettingDB = await openDatabase(
@@ -44,7 +46,8 @@ class DbMobilSettings extends IDbMobilSettings {
   }
 
   Future<void> _createTable(Database db, int version) async {
-    await db.execute('''
+    await db.execute(
+        '''
   CREATE TABLE "$_tableNameMobilSettings" (
 	"$_colId"	INTEGER NOT NULL,
 	"$_adSoyad"	TEXT,
@@ -67,12 +70,15 @@ class DbMobilSettings extends IDbMobilSettings {
     return mobilActionMaps != null;
   }
 
+  
+
   @override
   Future<List> getMobilSettings() async {
     Database? db = await this.database;
     var result = await db!.rawQuery("Select * from $_tableNameMobilSettings");
     return result;
   }
+  
 
   @override
   Future<MobilSetting?> readMobilSettingItem(int id) async {
